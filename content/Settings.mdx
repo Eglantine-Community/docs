@@ -3,13 +3,14 @@ title: Settings
 description: Developer guide for adding settings and debug knobs
 ---
 
-import Alert from '@docusaurus/theme-classic/lib/components/Alert/Alert'
 
 # Settings
 
-<Alert title="Warning" type="warning">
-This guide is intended for developers ONLY. If you're looking for configuring the emulator itself, read **[the user handbook](./user/README.md)**.
-</Alert>
+:::warning[Warning]
+
+This guide is intended for developers ONLY. If you're looking for configuring the emulator itself, read **[the user handbook](./user/README.mdx)**.
+
+:::
 
 Settings on the emulator are very important, toggles and such can be used to guard and/or add branches to paths where some games may crash while others won't, and viceversa.
 
@@ -66,9 +67,11 @@ Common Categories:
 * Category::System
 * Category::Core
 
-<Alert title="Warning" type="warning">
+:::warning[Warning]
+
 If you wish for your toggle to be `on by default` then change `false` to `true` after `linkage,`.
-</Alert>
+
+:::
 
 ---
 
@@ -141,9 +144,11 @@ Example: `src/android/app/src/main/java/org/yuzu/yuzu_emu/features/settings/ui/S
 add(BooleanSetting.RENDERER_YOUR_SETTING_NAME.key)
 ```
 
-<Alert title="Warning" type="warning">
+:::warning[Warning]
+
 Remember, placing matters! Settings appear in the order of where you add them.
-</Alert>
+
+:::
 
 ---
 

@@ -46,7 +46,7 @@ Faulting package-relative application ID:
 
 ### Causes
 
-<Alert type="info">
+:::info
 
 #### Issue 1: Missing C++ Redistributable
 
@@ -56,9 +56,10 @@ Faulting package-relative application ID:
 2. Double Click the downloaded executable file and wait for the software to install.
 3. Restart the computer.
 4. Launch Eden again, if the main window appears, you are good to go.  If not, proceed to the next issue.
-</Alert>
 
-<Alert type="info">
+:::
+
+:::info
 
 #### Issue 2: Corrupted System Files
 
@@ -66,7 +67,7 @@ Faulting package-relative application ID:
 
 1. Launch Eden to generate a crash.
 2. Confirm there are no logs created in the log directory.
-    1. See the [How to Access Logs](./HowToAccessLogs.md) page for the log location if you need it.
+    1. See the [How to Access Logs](./HowToAccessLogs.mdx) page for the log location if you need it.
     2. If there are any entries in here since you tried step 1, this is likely not your issue.
 3. Navigate to your *Windows Event Viewer* (Start Menu > **eventvwr.msc**). 
 4. Expand **Windows Logs** and select **Application.**
@@ -96,4 +97,5 @@ Faulting package-relative application ID:
 
 8. Reboot your computer.
 9. Launch Eden and verify it is now working.
-</Alert>
+
+:::

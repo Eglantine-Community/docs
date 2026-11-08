@@ -78,18 +78,22 @@ There are 2 primary methods that you can use to connect to an existing room, dep
 - **Directly Connecting to a Room**
     - Use this option if the hosted room is not on the public lobby list (private, internal network only, etc.)
 
-<Alert type="note">
+:::note
+
 Just because a lobby appears on the public lobby list, does not mean that the host has properly configured the necessary port forwarding/firewall rules to allow a connection.  If you can't connect to a lobby, move onto another entry as the issue is probably not on your end.  Start looking at your environment if you are unable to connect to multiple/any lobbies.
-</Alert>
+
+:::
 
 ### Joining a Public Lobby
 
 1. Open Eden and navigate to *Multiplayer > Browse Public Game Lobby*.
 2. The **Public Room Browser** will now open and display a list of publicly accessible rooms.  Find one you want to connect to and double click it.
 
-    <Alert type="note">
+    :::note
+
     Just because a room is set for a specific game, does not mean that you ***have*** to play that game in that lobby.  It is generally good practice to do so, but there is no enforcement of that.
-    </Alert>
+
+:::
 3. You will now see a window showing everyone on the lobby, or an error message.
 
 ### Direct Connecting to a Room
@@ -151,9 +155,11 @@ Quite often the person with whom you want to play is located off of your interna
 
 - **Difficulty Level**: High
     
-    <Alert type="info">
+    :::info
+
     Use this option if you want the greatest performance/lowest latency, don't want to install any software, and have the ability to modify your networking equipment's configuration (most notably - your router). Avoid this option if you can't modify your router's configuration or are uncomfortable with looking up things on your own.
-    </Alert>
+
+:::
 
 Port forwarding is a networking technique that directs incoming traffic arriving at a specific port on a router or firewall to a designated device and port inside a private local network. When an external client contacts the public IP address of the router on that port, the router rewrites the packet's destination information (IP address and sometimes port number) and forwards it to the internal host that is listening on the corresponding service. This allows services such as web servers, game servers, or remote desktop sessions hosted behind NAT (Network Address Translation) to be reachable from the wider Internet despite the devices themselves having non-routable private addresses.
 
@@ -167,9 +173,11 @@ Remember you can't have one port open for multiple devices at the same time - yo
 
 - **Difficulty Level**: Easy
     
-    <Alert type="info">
+    :::info
+
     Use this option if you don't want to have to worry about other users machine/configuration settings, but also can't do port forwarding. This will still require that you as the host install a program and sign up for an account - but will prevent you from having to deal with port forwards or networking equipment. Avoid this option if there is not a close relay and you are getting issues with latency.
-    </Alert>
+
+:::
 
 Using a Tunnelling service may be the solution to avoid port forward, but also avoid worrying about your users setup. A tunnelling service works by having a lightweight client run on the machine that hosts the game server. That client immediately opens an **outbound** encrypted connection (typically over TLS/QUIC) to a relay node operated by the tunnel provider's cloud infrastructure. Because outbound traffic is almost always allowed through NAT routers and ISP firewalls, the tunnel can be established even when the host sits behind carrier-grade NAT or a strict firewall. The tunnel provider then assigns a public address (e.g., `mygame.playit.gg:12345`). When a remote player connects to that address, the traffic reaches the the tunnel provider relay, which forwards it through the already-established tunnel back to the client on the private network, and finally onto the local game server's port. In effect, the server appears to the Internet as if it were listening on the public address, while the host never needs to configure port-forwarding rules or expose its own IP directly.
 
@@ -182,9 +190,11 @@ For our purposes we would spawn the listener for the port that way chose when ho
 
 - **Difficulty**: Easy
 
-<Alert type="info">
+:::info
+
 Use this option if you don't want to use a tunnelling service, or don't want to manage the overhead of the playit gg solution, don't want to send data through the relay, or any other reason.  Avoid this method if you do not want to have to manage VPN installation/configuration for your users.
-</Alert>
+
+:::
 
 The VPN solution is a good compromise between the tunnelling solution and port forwarding.  You do not have to port forward or touch your networking equipment at all - but also don't need to send all your data connections through a 3rd party relay.  The big downside is that you will have to ensure all of your users have your VPN solution installed *and* that they have a valid configuration.  When looking for a solution, it is advised to find one that uses the WireGuard protocol for speed, and does not require communication with a server beyond the initial handshake.
 
@@ -289,9 +299,11 @@ In either situation at its core, we are emulating an input device on the host ma
 
 ### Steps
 
-<Alert type="info">
+:::info
+
 This guide will assume you are the one hosting the game and go over things *Parsec* specific at a high level, as their system is subject to change.  Follow *Parsec's* documentation where needed.
-</Alert>
+
+:::
 
 1. Launch Parsec on the host machine.
 2. Connect to the other player in Parsec.  You will know it is successful when the other player can see the host's screen.

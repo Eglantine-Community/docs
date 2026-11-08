@@ -18,15 +18,19 @@ This document describes the split GitHub Actions pipeline added with this change
 | Same-repository PR with label `ci:build`               | PR head commit; rebuilt on synchronize/reopen                         | Yes, as a rolling branch pre-release                                       |
 | Fork PR                                                | No build from the base repository                                     | No; see "Forks" below                                                      |
 
-<Alert title="Important" type="warning">
+:::warning[Important]
+
 **Important behavior change:** the previous `release-binaries.yml` built on selected source/build-file pushes to `nx2` and `nx2-experimental`. This design instead runs the release pipeline on `VERSION` or `CHANGELOG.md` changes, scheduled daily, manual requests, or explicitly labelled same-repository PRs. Ordinary source pushes do not trigger this release pipeline. A changelog-only push retries a previously blocked version release; once its tag exists, the duplicate check skips it. The `nx2-experimental` branch is not included in the new release triggers.
-</Alert>
+
+:::
 
 The schedule is defined in UTC, and GitHub schedules are not guaranteed to start at the exact minute. On public repositories, GitHub can disable scheduled workflows after 60 days without repository activity; high Actions load can also delay runs. The scheduled workflow runs from the repository's default branch, then checks out `nx2` for the actual build. See the one-time setup section: the reusable workflow files must also exist on the default branch.
 
-<Alert title="First-merge warning" type="warning">
+:::warning[First-merge warning]
+
 **First-merge warning:** adding `ci.yml` and `VERSION` together to `nx2` triggers the initial version workflow. The supplied `CHANGELOG.md` intentionally leaves `[0.1.0]` empty rather than inventing release notes, so the first run fails safely at preflight until maintainers add real notes. Add the notes before the cutover merge to publish immediately, or add them in a follow-up changelog-only commit; `CHANGELOG.md` is also a push trigger for this recovery case. Confirm `VERSION`, permissions, and whether the first run should publish before merging the cutover.
-</Alert>
+
+:::
 
 ## Version and changelog rules
 
