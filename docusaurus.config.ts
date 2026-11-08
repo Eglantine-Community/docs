@@ -17,13 +17,12 @@ const config: Config = {
   organizationName: 'Eglantine-Community',
   projectName: 'docs',
 
-  onBrokenLinks: 'warn',      // switch to 'throw' once the links are cleaned up
+  onBrokenLinks: 'warn',
   onBrokenAnchors: 'warn',
 
-  // Existing .md files were not written for MDX: parse them as plain
-  // CommonMark, and only .mdx files as MDX.
+  // Use MDX format exclusively
   markdown: {
-    format: 'detect',
+    format: 'mdx',
     hooks: {
       onBrokenMarkdownLinks: 'warn',
     },
@@ -42,9 +41,9 @@ const config: Config = {
           path: 'content',
           routeBasePath: '/',
           sidebarPath: './sidebars.ts',
-          // editUrl is joined with the file path relative to the site root,
-          // so this resolves to .../tree/master/content/<file>.md
           editUrl: 'https://github.com/Eglantine-Community/docs/tree/master/',
+          remarkPlugins: [],
+          rehypePlugins: [],
         },
         blog: false,
         theme: {
@@ -68,7 +67,7 @@ const config: Config = {
       items: [
         {
           type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
+          sidebarId: 'docsSidebar',
           position: 'left',
           label: 'Docs',
         },
@@ -108,7 +107,6 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
-      // add languages used in your code blocks if highlighting is missing
       additionalLanguages: ['bash', 'cmake', 'ini', 'powershell', 'nix'],
     },
   } satisfies Preset.ThemeConfig,

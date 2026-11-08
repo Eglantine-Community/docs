@@ -1,0 +1,81 @@
+---
+sidebar_label: HOS Kernel
+---
+
+# HOS Kernel
+
+The HOS (Home OS) kernel is the operating system that runs on Nintendo Switch 2. It manages system services, hardware abstraction, and provides the foundation for running applications and games.
+
+## Architecture
+
+The kernel follows a modular design with several key components:
+
+- **Service Manager**: Manages and coordinates system services
+- **Scheduler**: Handles process scheduling and CPU time allocation
+- **Memory Manager**: Manages virtual memory and page tables
+- **File System**: Provides virtual file system abstraction
+- **Input System**: Handles input devices and controller mapping
+- **Network Stack**: Provides network communication services
+
+## Services
+
+The HOS kernel exposes a variety of services through IPC mechanisms. Key services include:
+
+### fs (File System Service)
+
+Provides file system operations, mount management, and file I/O abstraction.
+
+### audio (Audio Service)
+
+Manages audio output, mixing, and DSP operations.
+
+### net (Network Service)
+
+Handles network connectivity, sockets, and network protocols.
+
+### display (Display Service)
+
+Manages screen output, composition, and rendering.
+
+## Development
+
+When working with HOS kernel services:
+
+1. Use the `nxd` (NX2 Development) SDK for development tools
+2. Follow the service API documentation in the SDK
+3. Use `nxc` (NX2 Cross Compiler) for cross-compilation
+4. Test on actual hardware when possible
+
+## Kernel Modules
+
+The kernel supports loading and managing kernel modules for:
+
+- Graphics drivers
+- Network drivers
+- Input device drivers
+- Audio backends
+
+## Security
+
+The HOS kernel implements several security features:
+
+- User-space isolation
+- Memory protection
+- Secure boot
+- Certificate verification
+- Encrypted communication
+
+## Debugging
+
+For debugging kernel issues:
+
+```bash
+# Enable kernel logging
+EDEN_HOS_LOG=1
+
+# View kernel logs
+cat /proc/eglantine/kmsg
+
+# Debug kernel modules
+modinfo <module_name>
+```
