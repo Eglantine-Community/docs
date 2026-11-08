@@ -25,10 +25,12 @@ Adapted from [Selevet performance build 4](https://github.com/sylvieistaken/sele
   bitsets retain the generic traversal. The slot iterator also handles an empty
   first bitmap word correctly.
 
+<Alert type="note">
 Handheld mode, ScaleForce, and FXAA are the defaults. Explicit saved preferences
 are retained. Accepting the startup recommendations saves the requested settings
 and reapplies the MKW preset after per-game configuration is loaded. Declining or
 closing the prompt preserves the user's settings.
+</Alert>
 
 The kernel TLS implementation is compiled without LTO on GCC and Clang LTO builds
 so its lookups remain outside callers that can switch between migrating fibers.
