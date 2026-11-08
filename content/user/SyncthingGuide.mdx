@@ -39,7 +39,7 @@ Syncthing is a continuous file synchronization program (in the layman's - make s
 Syncthing is fairly robust and doesn't have many issues luckily, but there are some things you should watch out for (almost all of them a user issue).
 
 - **Sync conflicts**
-    - If for whatever reason you update the same file on 2 different machines, the system does not know which updated file is considered the one to sync across.  This results in a ***sync conflict*** where it may not sync the files as you would expect.  Worst case scenario, this can result in your save progress being lost if you are not careful.  When one of these occurs, it will create a copy of the file and store it with a specific name, like this example, *Paper Mario.sync-conflict-20251102-072925-TZBBN6S.srm.* To resolve this, you must remove the other files and remove the *.sync-conflict-<TIMESTAMP>-<Syncthing Device ID>* from the file name of the file you want to keep.
+    - If for whatever reason you update the same file on 2 different machines, the system does not know which updated file is considered the one to sync across.  This results in a **sync conflict** where it may not sync the files as you would expect.  Worst case scenario, this can result in your save progress being lost if you are not careful.  When one of these occurs, it will create a copy of the file and store it with a specific name, like this example, *Paper Mario.sync-conflict-20251102-072925-TZBBN6S.srm.* To resolve this, you must remove the other files and remove the *.sync-conflict-&lt;TIMESTAMP&gt;-&lt;Syncthing Device ID&gt;* from the file name of the file you want to keep.
 - **Accidental Deletions**
     - If you delete a file from one of the devices, it will also remove the file on the other devices when they perform a sync so be careful when doing this.
 
@@ -86,9 +86,9 @@ Use this when you want to set this machine as the initial source of truth (push 
 5. Enter the Full folder path to where your save files are stored on this machine.
 
     <Alert type="tip">
-    The easiest way to do this would be to open Eden, right-click a game that has a save, hit ***Open Save Data Location,*** and then go up 1 directory.  It should contain folders with the TitleID of your games.
+    The easiest way to do this would be to open Eden, right-click a game that has a save, hit **Open Save Data Location**, and then go up 1 directory.  It should contain folders with the TitleID of your games.
 
-    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E*
+    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E
     </Alert>
 
 6. Ignore the other tabs for now and hit **Save**.
@@ -99,22 +99,22 @@ Use this when you want to set this machine as the initial source of truth (push 
 Use this when you want to set this machine up as a child (pull files from the other devices).  Afterwards they will all be equal partners, not a parent/child relationship, this just helps with initial setup.
 
 1. Install Syncthing Tray on the client device following the section above.  Copy the child's ID and store it so it is accessible to the Parent.
-2. ***ON THE PARENT***: Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already**.**
+2. **ON THE PARENT**: Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already.**
 3. You will now have a browser window open up to a web GUI to configure *Syncthing*.  You will get a pop up about allowing anonymous usage and setting a password, make your selections to close them.
 4. Navigate down to **+ Add Remote Device**, we are going to add our Child device, so I hope you have its ID handy.  If not, go back and get it.
 5. Add the ID and Name the device, the device may appear as a **nearby device**, in which case you can just click it to pre-populate the Device ID.
 6. Click the **Sharing** Tab, and check the box next to the folder you set up on the Parent (Switch Saves in my case). Hit **Save.**
 7. We are done with the parent, now **SWITCH OVER TO THE CHILD.**
-8. ***ON THE CHILD***:  Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already**.** 
+8. **ON THE CHILD**: Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already.** 
 9. You should now see a connection request from the parent.  Hit **+ Add Device** to add the device.
 10. Hit **Save** to finish adding the device.
 11. That pop-up will close and you will get notification that the device wants to share a folder now. Hit **Add.**
 12. Enter the path to the save folder in Eden and hit **Save.**
 
     <Alert type="tip">
-    The easiest way to do this would be to open Eden, right-click a game that has a save, hit ***Open Save Data Location,*** and then go up 1 directory.  It should contain folders with the TitleID of your games.
+    The easiest way to do this would be to open Eden, right-click a game that has a save, hit **Open Save Data Location**, and then go up 1 directory.  It should contain folders with the TitleID of your games.
 
-    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E*
+    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E
     </Alert>
 
 13. *Syncthing* will now pull all the files from the Parent and store them in your local save directory.  At this point the files are in sync and alterations to one will affect the other and both can be considered "*Parents*" for other devices you want to add.  Repeat these steps for as many devices you want.
@@ -158,9 +158,9 @@ Use this when you want to set this machine as the initial source of truth (push 
 5. Enter the Full folder path to where your save files are stored on this machine.
 
     <Alert type="tip">
-    The easiest way to do this would be to open Eden, right-click a game that has a save, hit ***Open Save Data Location,*** and then go up 1 directory.  It should contain folders with the TitleID of your games.
+    The easiest way to do this would be to open Eden, right-click a game that has a save, hit **Open Save Data Location**, and then go up 1 directory.  It should contain folders with the TitleID of your games.
 
-    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E*
+    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E
     </Alert>
 
 6. Ignore the other tabs for now and hit **Save**.
@@ -171,22 +171,22 @@ Use this when you want to set this machine as the initial source of truth (push 
 Use this when you want to set this machine up as a child (pull files from the other devices).  Afterwards they will all be equal partners, not a parent/child relationship, this just helps with initial setup.
 
 1. Install Syncthing Tray on the client device following the section above.  Copy the child's ID and store it so it is accessible to the Parent.
-2. ***ON THE PARENT***: Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already**.** 
+2. **ON THE PARENT**: Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already.
 3. You will now have a browser window open up to a web GUI to configure *Syncthing*.  You will get a pop up about allowing anonymous usage and setting a password, make your selections to close them.
 4. Navigate down to **+ Add Remote Device**, we are going to add our Child device, so I hope you have its ID handy.  If not, go back and get it.
 5. Add the ID and Name the device, the device may appear as a **nearby device**, in which case you can just click it to pre-populate the Device ID.
 6. Click the **Sharing** Tab, and check the box next to the folder you set up on the Parent (Switch Saves in my case). Hit **Save.**
 7. We are done with the parent, now **SWITCH OVER TO THE CHILD.**
-8. ***ON THE CHILD***:  Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already.
+8. **ON THE CHILD**: Right-Click the *Syncthing* Tray icon in your taskbar and select **Open Syncthing** if it is not open already.
 9. You should now see a connection request pop-up from the parent.  Hit **+ Add Device** to add the device.
 10. Hit **Save** to finish adding the device.
 11. That pop-up will close and you will get notification that the device wants to share a folder now. Hit **Add.**
 12. Enter the path to the save folder in Eden and hit **Save.**
 
     <Alert type="tip">
-    The easiest way to do this would be to open Eden, right-click a game that has a save, hit ***Open Save Data Location,*** and then go up 1 directory.  It should contain folders with the TitleID of your games.
+    The easiest way to do this would be to open Eden, right-click a game that has a save, hit **Open Save Data Location**, and then go up 1 directory.  It should contain folders with the TitleID of your games.
 
-    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E*
+    It should look similar to this: ..*\nand\user\save\0000000000000000\EC573727F509799675F6E5112C581D7E
     </Alert>
 
 13. *Syncthing* will now pull all the files from the Parent and store them in your local save directory.  At this point the files are in sync and alterations to one will affect the other and both can be considered "*Parents*" for other devices you want to add.  Repeat these steps for as many devices you want.

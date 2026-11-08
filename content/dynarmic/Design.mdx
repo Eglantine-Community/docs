@@ -66,7 +66,7 @@ help of the [`IREmitter` class](../../src/dynarmic/src/dynarmic/ir/ir_emitter.h)
     bool ArmTranslatorVisitor::arm_ADC_imm(Cond cond, bool S, Reg n, Reg d, int rotate, Imm8 imm8) {
         u32 imm32 = ArmExpandImm(rotate, imm8);
 
-        // ADC{S}<c> <Rd>, <Rn>, #<imm>
+        // ADC{S} instruction: ADC{S}&lt;c&gt; &lt;Rd&gt;, &lt;Rn&gt;, #&lt;imm&gt;
 
         if (ConditionPassed(cond)) {
             auto result = ir.AddWithCarry(ir.GetRegister(n), ir.Imm32(imm32), ir.GetCFlag());
@@ -89,6 +89,7 @@ help of the [`IREmitter` class](../../src/dynarmic/src/dynarmic/ir/ir_emitter.h)
 
         return true;
     }
+```
 
 where `ir` is an instance of the `IRBuilder` class. Each member function of the `IRBuilder` class constructs
 an IR microinstruction.
@@ -610,3 +611,6 @@ Most modern OSes implement kernel-page-table-isolation, which means a set of sys
 Signal dispatching takes a performance hit from reloading `%cr3` - but Linux does something more clever to avoid reloads:  VDSO will take care of the entire thing in the same address space. Making dispatching as costly as an indirect call - without the hazards of increased code size.
 
 The main downside from this is the constant i-cache trashing and pipeline hazards introduced by the VDSO signal handlers. However on most benchmarks fastmem does perform faster than without (Linux only). This also abuses the fact of continous address space emulation by using an arena - which can then be potentially transparently mapped into a hugepage, reducing TLB walk times.
+```
+
+```

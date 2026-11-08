@@ -26,9 +26,9 @@ See also: [Dolphin emulator](https://github.com/dolphin-emu/dolphin/blob/cdbea88
 | NVIDIA | All | Proprietary | ? | Doesn't properly support conditional barriers. |
 | NVIDIA | All | Proprietary | ? | GPUs pre-turing doesn't properly work with push descriptors. |
 | NVIDIA | All | All | ? | Calling `vkCmdClearAttachments` with a partial rect, or specifying a render area in a render pass with the load op set to clear can cause the GPU to lock up, or raise a bounds violation. This only occurs on MSAA framebuffers, and it seems when there are multiple clears in a single command buffer. Worked around by back to the slow path (drawing quads) when MSAA is enabled. |
-| Intel | All | Proprietary | <27.20.100.0 | Intel Windows versions before 27.20.100.0 has broken `VK_EXT_vertex_input_dynamic_state`. |
+| Intel | All | Proprietary | &lt;27.20.100.0 | Intel Windows versions before 27.20.100.0 has broken `VK_EXT_vertex_input_dynamic_state`. |
 | Intel | All | Proprietary | ? | Intel proprietary drivers do not support MSAA->MSAA image blits. |
-| Intel | All | Proprietary | 0.405.0<br>until<br>0.405.286 | Intel proprietary drivers 0.405.0 until 0.405.286 have broken compute. |
+| Intel | All | Proprietary | 0.405.0&lt;br&gt;until&lt;br&gt;0.405.286 | Intel proprietary drivers 0.405.0 until 0.405.286 have broken compute. |
 | Intel | macOS | Proprietary | ? | Using dynamic sampler indexing locks up the GPU. |
 | Intel | macOS | Proprietary | ? | Using subgroupMax in a shader that can discard results in garbage data. |
 | Intel | All | Mesa | ? | Broken lines in geometry shaders when writing to `gl_ClipDistance` in the vertex shader. |
@@ -57,7 +57,7 @@ See also: [Dolphin emulator](https://github.com/dolphin-emu/dolphin/blob/cdbea88
 | Apple | iOS | MoltenVK | ? | Null descriptors cause non-descriptive issues. |
 | Apple | iOS | MoltenVK | ? | Push descriptors cause non-descriptive issues. |
 | Imagination | Android | Proprietary | ? | Some vulkan implementations don't like the 'clear' loadop renderpass if you try to use a framebuffer with a different load/store op than that which it was created with, despite the spec saying they should be compatible. |
-| Intel<br>Qualcomm<br>AMD<br>Apple | All | All<br>MoltenVK (Apple) | ? | Reversed viewport depth range does not work as intended on some Vulkan drivers. The Vulkan spec allows the `minDepth`/`maxDepth` fields in the viewport to be reversed, however the implementation is broken on some drivers. |
+| Intel&lt;br&gt;Qualcomm&lt;br&gt;AMD&lt;br&gt;Apple | All | All&lt;br&gt;MoltenVK (Apple) | ? | Reversed viewport depth range does not work as intended on some Vulkan drivers. The Vulkan spec allows the `minDepth`/`maxDepth` fields in the viewport to be reversed, however the implementation is broken on some drivers. |
 
 AMD: List of driver IDs:
 - Proprietary: `VK_DRIVER_ID_AMD_PROPRIETARY`
