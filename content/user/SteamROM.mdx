@@ -41,11 +41,13 @@ Use this when you want to import the Eden AppImage into your Steam Library along
 
 :::
 
-    1. Open **EmuDeck**, then navigate to *Manage Emulators.*
-    2. Scroll down to the bottom of the page to the *Manage your Tools & Frontends* section. Click **Steam ROM Manager**.
-    3. Click the **Install** button on the right hand side to install it.
+```
+1. Open **EmuDeck**, then navigate to *Manage Emulators.*
+2. Scroll down to the bottom of the page to the *Manage your Tools & Frontends* section. Click **Steam ROM Manager**.
+3. Click the **Install** button on the right hand side to install it.
 
-    ---
+---
+```
 
 #### Adding Eden into *Steam ROM Manager*
 
@@ -112,16 +114,16 @@ In order to ensure that the matches occur correctly, it is recommended that you 
     1. Basic Configuration
         1. **Parser Type**: *Blob*
         2. **Parser Title**: *Emulators - Emulators*
-        3. **Steam Directory**: *${steamdirglobal}*
+        3. **Steam Directory**: `${steamdirglobal}`
         4. **User Accounts**: *Global*
         5. **ROMs Directory**: &lt;path to directory containing Eden AppImage&gt;
         6. **Steam Collections**: *Emulation* (OPTIONAL)
     2. Parser Specific Configuration
-        1. **Search Glob**: *${title}@(.AppImage|.APPIMAGE|.appimage)*
+        1. **Search Glob**: `${title}@(.AppImage|.APPIMAGE|.appimage)`
     3. Executable Configuration
-        1. **Executable Modifier**: *"${exePath}"*
+        1. **Executable Modifier**: `"${exePath}"`
     4. Title Modification Configuration
-        1. **Title Modifier**: *${fuzzyTitle}*
+        1. **Title Modifier**: `${fuzzyTitle}`
 
 3. Hit the **Test** button to ensure your emulator AppImages. 
 4. Hit **Save** to save the Parser.
@@ -202,12 +204,14 @@ Use this when you want to import your games inside Eden into Steam to launch wit
 
 :::
     
-    1. Open **EmuDeck**, then navigate to *Manage Emulators.*
-    2. Scroll down to the bottom of the page to the *Manage your Tools & Frontends* section. Click **Steam ROM Manager**.
-        3. Click the **Install** button on the right hand side to install it.
-    
-    ---
-    
+```
+1. Open **EmuDeck**, then navigate to *Manage Emulators.*
+2. Scroll down to the bottom of the page to the *Manage your Tools & Frontends* section. Click **Steam ROM Manager**.
+    3. Click the **Install** button on the right hand side to install it.
+
+---
+```
+
 2. Open the Start Menu and Launch ***Steam ROM Manager*** 
 
 1. The program will now launch and show you a window with parsers.

@@ -40,7 +40,9 @@ Using the A32 frontend with the x64 backend as an example:
 The decoder is a double dispatch decoder. Each instruction is represented by a line in the relevant
 instruction table. Here is an example line from [`arm.h`](../../src/dynarmic/src/dynarmic/frontend/A32/decoder/arm.h):
 
-    INST(&V::arm_ADC_imm,     "ADC (imm)",           "cccc0010101Snnnnddddrrrrvvvvvvvv")
+```cpp
+INST(&V::arm_ADC_imm,     "ADC (imm)",           "cccc0010101Snnnnddddrrrrvvvvvvvv")
+```
 
 (Details on this instruction can be found in section A8.8.1 of the ARMv7-A manual. This is encoding A1.)
 
@@ -63,32 +65,34 @@ error results.
 The translator is a visitor that uses the decoder to decode instructions. The translator generates IR code with the
 help of the [`IREmitter` class](../../src/dynarmic/src/dynarmic/ir/ir_emitter.h). An example of a translation function follows:
 
-    bool ArmTranslatorVisitor::arm_ADC_imm(Cond cond, bool S, Reg n, Reg d, int rotate, Imm8 imm8) {
-        u32 imm32 = ArmExpandImm(rotate, imm8);
+```cpp
+bool ArmTranslatorVisitor::arm_ADC_imm(Cond cond, bool S, Reg n, Reg d, int rotate, Imm8 imm8) {
+    u32 imm32 = ArmExpandImm(rotate, imm8);
 
-        // ADC{S} instruction: ADC{S}&lt;c&gt; &lt;Rd&gt;, &lt;Rn&gt;, #&lt;imm&gt;
+    // ADC{S} instruction: ADC{S}&lt;c&gt; &lt;Rd&gt;, &lt;Rn&gt;, #&lt;imm&gt;
 
-        if (ConditionPassed(cond)) {
-            auto result = ir.AddWithCarry(ir.GetRegister(n), ir.Imm32(imm32), ir.GetCFlag());
+    if (ConditionPassed(cond)) {
+        auto result = ir.AddWithCarry(ir.GetRegister(n), ir.Imm32(imm32), ir.GetCFlag());
 
-            if (d == Reg::PC) {
-                ASSERT(!S);
-                ir.ALUWritePC(result.result);
-                ir.SetTerm(IR::Term::ReturnToDispatch{});
-                return false;
-            }
-
-            ir.SetRegister(d, result.result);
-            if (S) {
-                ir.SetNFlag(ir.MostSignificantBit(result.result));
-                ir.SetZFlag(ir.IsZero(result.result));
-                ir.SetCFlag(result.carry);
-                ir.SetVFlag(result.overflow);
-            }
+        if (d == Reg::PC) {
+            ASSERT(!S);
+            ir.ALUWritePC(result.result);
+            ir.SetTerm(IR::Term::ReturnToDispatch{});
+            return false;
         }
 
-        return true;
+        ir.SetRegister(d, result.result);
+        if (S) {
+            ir.SetNFlag(ir.MostSignificantBit(result.result));
+            ir.SetZFlag(ir.IsZero(result.result));
+            ir.SetCFlag(result.carry);
+            ir.SetVFlag(result.overflow);
+        }
     }
+
+    return true;
+}
+```
 ```
 
 where `ir` is an instance of the `IRBuilder` class. Each member function of the `IRBuilder` class constructs
