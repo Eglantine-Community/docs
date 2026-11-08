@@ -51,7 +51,7 @@ Open the CMakeLists.txt file in your cloned directory via File -> Open File or P
 
 Select your desired "kit" (usually, the default is okay). RelWithDebInfo or Release is recommended:
 
-![Qt Creator kits](img/creator-1.png)
+![Qt Creator kits](/img/creator-1.png)
 
 Hit "Configure Project", then wait for CMake to finish configuring (may take a while on Windows).
 
